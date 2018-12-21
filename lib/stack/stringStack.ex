@@ -24,22 +24,28 @@ defmodule StringStack do
   """
   defstruct storage: ""
 
+  @doc """
+    Returns a new `%StringStack{storage: ""}`
+  """
   def new, do: %StringStack{}
 
   @doc """
-    if there is currently no element in the storage, just return the storage with the element being the only thing in the stack
+    If there is currently no element in the storage, just return the storage with the element being the only thing in the stack
   """
   def push(%StringStack{storage: ""}, element) do
     %StringStack{storage: element}
   end
 
   @doc """
-    if there is an item in the stack already, return the previous stack and join the new element on to the end with a comma between the two
+    If there is an item in the stack already, return the previous stack and join the new element on to the end with a comma between the two
   """
   def push(stack, element) do
     %StringStack{stack | storage: "#{stack.storage},#{element}"}
   end
 
+  @doc """
+    If the current storage is empty and trying to pop, raise an error
+  """
   def pop(%StringStack{storage: ""}), do: raise("String stack is empty!")
 
   @doc """

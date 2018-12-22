@@ -48,8 +48,7 @@ defmodule Stack do
     Return a tuple with the element being popped off the head and the leftover of the stack containing the tail.
 
   ### Examples
-      iex> nums
-      %Stack{elements: [2, 1]}
+      iex> nums = %Stack{elements: [2, 1]}
       iex> {_, nums} = Stack.pop(nums)
       {2, %Stack{elements: [1]}}
       iex> {_, nums} = Stack.pop(nums)

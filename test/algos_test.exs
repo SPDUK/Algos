@@ -1,6 +1,7 @@
 defmodule AlgosTest do
   use ExUnit.Case
-  doctest Algos
+  doctest Questions
+  doctest Stack
 
   test "greets the world" do
     assert Algos.hello() == :world

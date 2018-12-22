@@ -15,6 +15,7 @@ defmodule Questions do
       |> Enum.join("")
       |> Integer.parse()
 
+    # if the number came in as a negative integer, return it negative
     if n < 0 do
       reversed * -1
     else

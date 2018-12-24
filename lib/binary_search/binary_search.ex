@@ -1,12 +1,7 @@
 defmodule BinarySearch do
-  def search(list, item) do
-    # if there are any errors with the list being empty or unsorted, throw an error, else start the search
-    cond do
-      list == [] -> raise ArgumentError, message: "Can't search through an empty list"
-      list !== Enum.sort(list) -> raise ArgumentError, message: "List is not sorted"
-      true -> start_search(Enum.with_index(list), item)
-    end
-  end
+  def search([], _), do: raise(ArgumentError, message: "Can't search through an empty list")
+
+  def search(list, item), do: start_search(Enum.with_index(list), item)
 
   defp start_search(list, item) do
     # if there is only one item before we split, (or we get lucky with first element in the list) return the first element

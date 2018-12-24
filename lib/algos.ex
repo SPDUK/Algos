@@ -1,18 +1,5 @@
 defmodule Algos do
   @moduledoc """
-  Documentation for Algos.
+  Some basic algorithms using Elixir
   """
-
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Algos.hello()
-      :world
-
-  """
-  def hello do
-    :world
-  end
 end

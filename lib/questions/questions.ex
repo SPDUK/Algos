@@ -39,4 +39,14 @@ defmodule Questions do
       num == -0 -> -0
     end
   end
+
+  @doc """
+    A simple program that takes in a number n and prints a pyramid n steps high
+  """
+  def pyramid(n) do
+    for i <- 1..n do
+      str = "#{String.duplicate("#", i)}#{String.duplicate(" ", n - i)}"
+      IO.puts(str)
+    end
+  end
 end

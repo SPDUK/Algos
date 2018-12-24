@@ -23,3 +23,6 @@
 /elixir/algos-*.tar
 
 /.elixir_ls
+
+/.idea
+/ruby/.idea

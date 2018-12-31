@@ -24,14 +24,14 @@ function mergeSort(arr) {
   const leftArr = arr.slice(0, middleIdx);
   const rightArr = arr.slice(middleIdx);
 
-  const leftSplit = sort(leftArr);
-  const rightSplit = sort(rightArr);
+  const leftSplit = mergeSort(leftArr);
+  const rightSplit = mergeSort(rightArr);
 
   return mergeArrays(leftSplit, rightSplit);
 }
 
 function mergeArrays(leftArr, rightArr) {
-  let sortedArr = [];
+  const sortedArr = [];
 
   // while we can make a comparison between both arrays,
   while (leftArr.length && rightArr.length) {

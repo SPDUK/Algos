@@ -16,7 +16,7 @@
 
 // in this case instead of using pointers we naturally point to the next index in the array by removing the first index and just use the first element all the time
 
-function sort(arr) {
+function mergeSort(arr) {
   // no need to compare if there is just one (or no) elements
   if (arr.length <= 1) return arr;
 
@@ -37,24 +37,16 @@ function mergeArrays(leftArr, rightArr) {
   while (leftArr.length && rightArr.length) {
     // find the lowest number at the [0] index of each array, then shift it (mutates original array, returns the element at index 0),
     // push that returned number into sortedArr
-    if (leftArr[0] <= rightArr[0]) {
-      sortedArr.push(leftArr.shift());
-    } else {
-      sortedArr.push(rightArr.shift());
-    }
+    if (leftArr[0] <= rightArr[0]) sortedArr.push(leftArr.shift());
+    else sortedArr.push(rightArr.shift());
   }
 
   // if there is just one element left then it is larger so we add it to the end
   // if there is more than one element then they are already sorted previously, and also larger, so we add them to the end
-  if (leftArr.length) {
-    sortedArr.push(...leftArr);
-  }
-
-  if (rightArr.length) {
-    sortedArr.push(...rightArr);
-  }
+  if (leftArr.length) sortedArr.push(...leftArr);
+  if (rightArr.length) sortedArr.push(...rightArr);
 
   return sortedArr;
 }
 
-module.exports = sort;
+module.exports = mergeSort;

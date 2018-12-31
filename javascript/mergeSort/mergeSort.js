@@ -16,20 +16,6 @@
 
 // in this case instead of using pointers we naturally point to the next index in the array by removing the first index and just use the first element all the time
 
-function mergeSort(arr) {
-  // no need to compare if there is just one (or no) elements
-  if (arr.length <= 1) return arr;
-
-  const middleIdx = Math.floor(arr.length / 2);
-  const leftArr = arr.slice(0, middleIdx);
-  const rightArr = arr.slice(middleIdx);
-
-  const leftSplit = mergeSort(leftArr);
-  const rightSplit = mergeSort(rightArr);
-
-  return mergeArrays(leftSplit, rightSplit);
-}
-
 function mergeArrays(leftArr, rightArr) {
   const sortedArr = [];
 
@@ -47,6 +33,20 @@ function mergeArrays(leftArr, rightArr) {
   if (rightArr.length) sortedArr.push(...rightArr);
 
   return sortedArr;
+}
+
+function mergeSort(arr) {
+  // no need to compare if there is just one (or no) elements
+  if (arr.length <= 1) return arr;
+
+  const middleIdx = Math.floor(arr.length / 2);
+  const leftArr = arr.slice(0, middleIdx);
+  const rightArr = arr.slice(middleIdx);
+
+  const leftSplit = mergeSort(leftArr);
+  const rightSplit = mergeSort(rightArr);
+
+  return mergeArrays(leftSplit, rightSplit);
 }
 
 module.exports = mergeSort;

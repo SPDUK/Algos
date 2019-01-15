@@ -3,7 +3,6 @@ const mergeSort = require('./mergeSort');
 const mergeSortPointers = require('./mergeSortPointers');
 const selectionSort = require('./selectionSort');
 const quickSort = require('./quickSort');
-
 const sorts = [bubbleSort, mergeSort, mergeSortPointers, selectionSort, quickSort];
 
 for (const sort of sorts) {

@@ -52,7 +52,7 @@ defmodule Questions do
 
   ##### Some things for Programming Elixir book #####
 
-  # Anonymous functions
+  ## Anonymous functions
 
   list_concat = fn [a, b], [c, d] -> [a, b, c, d] end
   IO.inspect(list_concat.([1, 2], [99, 100]))
@@ -66,4 +66,42 @@ defmodule Questions do
   pair_tuple_to_list = fn {a, b} -> [a, b] end
   IO.inspect(pair_tuple_to_list.({1234, 5678}))
   # [1234,5678]
+
+  #   Write a function that takes three arguments. If the first two are zero, return
+  # “FizzBuzz.” If the first is zero, return “Fizz.” If the second is zero, return
+  # “Buzz.” Otherwise return the third argument.
+
+  # Using basic pattern matching with an anonymous function, if the arguments line up as expected we return the expected string.
+  fizzbuzz = fn
+    0, 0, _ ->
+      "FizzBuzz"
+
+    0, _, _ ->
+      "Fizz"
+
+    _, 0, _ ->
+      "Buzz"
+
+    _, _, x ->
+      x
+  end
+
+  say_fizzbuzz = fn n ->
+    fizzbuzz.(rem(n, 3), rem(n, 5), n)
+  end
+
+  # uncomment to see fizzbuzz in console
+  # for n <- 1..30, do: IO.inspect(say_fizzbuzz.(n))
+
+  # The same but without anonymous functions, more "elixir like"? with function overloading
+  # for n <- 1..30, do: IO.inspect(Questions.say_fizzbuzz2(n))
+
+  def fizzbuzz2(0, 0, _), do: "Fizzbuzz"
+  def fizzbuzz2(0, _, _), do: "Fizz"
+  def fizzbuzz2(_, 0, _), do: "Buzz"
+  def fizzbuzz2(_, _, x), do: x
+
+  def say_fizzbuzz2(n) do
+    fizzbuzz2(rem(n, 3), rem(n, 5), n)
+  end
 end

@@ -1,7 +1,7 @@
 defmodule GuessNumber do
   def guess(n, a..b) when n === div(a + b, 2), do: IO.puts("Your number is #{n}!")
 
-  def guess(n, a..b) when is_number(n) and n in a..b do
+  def guess(n, a..b) when n in a..b do
     mid = div(a + b, 2)
     IO.puts("Is it #{mid}?")
 

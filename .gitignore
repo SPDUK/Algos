@@ -22,6 +22,6 @@
 # Ignore package tarball (built via "mix hex.build").
 /elixir/algos-*.tar
 
-/.elixir_ls
+/elixir/.elixir_ls
 /javascript/node_modules
 /javascript/temp

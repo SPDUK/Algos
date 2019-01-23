@@ -37,6 +37,10 @@ defmodule MyList do
   def caesar_decode(char, num) when char + num < 122 do
     char + num
   end
+
+  # using [1,2] ++ [3,4] ++ [5,6] concatenates the lists together and doesn't push to the list
+  def span(from = to, to), do: [from]
+  def span(from, to) when from < to, do: [from] ++ span(from + 1, to)
 end
 
 # 14
@@ -49,3 +53,9 @@ IO.puts(MyList.max([8, 887, 99, 2002]))
 
 # Uryyb-dbeyq
 IO.puts(MyList.caesar('Hello World', 13))
+
+# [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40]
+IO.inspect(MyList.span(30, 40))
+
+# [30], 40
+# [30]

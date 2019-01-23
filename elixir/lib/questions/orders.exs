@@ -1,7 +1,7 @@
 defmodule Orders do
   # if the current order is in one of the rates that need to be adjusted, change the rate, else just add the total amount
   def get_order(orders, rates) do
-    for [_, {_, ship_to}, {_, net_amount}] = order <- orders do
+    for [{_, _id}, {_, ship_to}, {_, net_amount}] = order <- orders do
       case Keyword.fetch(rates, ship_to) do
         {:ok, rate} -> Keyword.put(order, :total_amount, net_amount + rate * net_amount)
         :error -> Keyword.put(order, :total_amount, net_amount)

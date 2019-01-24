@@ -18,10 +18,12 @@ defmodule Factorial do
 
   @doc """
   A more elixir way of doing it, where we use function overloading to return 1 when an input of 0 is given
+  Also uses tail call optimization because the last thing being used is a recursive call, not math
   """
-  def of(0), do: 1
+  def fact(n), do: _fact(n, 1)
+  def _fact(0, acc), do: acc
 
-  def of(n) when is_integer(n) and n > 0 do
-    n * of(n - 1)
+  def _fact(n, acc) when is_integer(n) and n > 0 do
+    _fact(n - 1, acc * n)
   end
 end
